@@ -1,10 +1,9 @@
+Project summary
+---------------
 README file for the project 129-29
 PI name and e-mail: Jinshi Sai
                     jsai@asiaa.sinica.edu.tw
 
-
-Project summary
----------------
 This project aims at mapping the C18O (2-1) and N2H+ (1-0) line
 emission in the three Class I protostars, TMC-1A, TMC1 and TMR1 with the IRAM-30m.
 
@@ -20,10 +19,11 @@ with VESPA.
 
 We use the OTF PSW observing mode to cover a region of ~ 2' x 2'. The requested sensitivities per 0.14 km s-1 channel for TMC-1A, TMC1, and TMR1 are 70mK, 100 mK, and 50 mK, respectively. These sensitivities should be reached in ~8hr, ~5hr and ~12hr of telescope time, respectively, assuming average winter conditions (4.0 mm of PWV).
 
+Three targets will be observed one by one. Once a source is completed, we will go to the next target.
+
 
 Typical PAKO session
 --------------------
-
 
 ```
 ! Startup
