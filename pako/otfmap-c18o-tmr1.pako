@@ -1,0 +1,70 @@
+!!! Make an OTF map of the C18O (2-1) line
+!!! in TMCR1
+!!! 2.5'x2.5'~150''x150'' for science
+
+! TODO: Check the OTF routine in pako
+
+clear
+limits 600 -600 -600 600
+box
+
+! Select the source
+
+set angle arcsec
+source tmr1
+offsets /clear
+
+! Set the receivers and backends
+
+@ receiver-c18o
+@ backend-c18o
+
+! Set the switching mode (total power => on-off map)
+
+swtotal /tphase 0.5 ! time per phase (data sample)
+
+! Make the OTF map
+
+! We map a region of 170 x 170" with a 4.8" spacing. At the C18O (2-1)
+! frequency, the telescope HPBW is about 11", so we have 2.3
+! points/beam.  The scan speed is 9.6"/sec and the data sample is 0.5 s,
+! i.e. one spectra every 4.8". We observe the reference position for 10
+! s every 4 scans. We make a first sub-map along the RA direction, make a
+! calibration, and then a second sub-map along the Dec direction. Total
+! time should be around 30 min.
+
+calibrate /sky -600 600
+start
+
+! scan in ra direction
+! subscans 18sx36 + ref 10sx9 ~12min
+otfmap         -80 -80 80 -80       - !  offsets at start and end of first OTF leg
+  /croloop     roooor               - !  off-source reference subscan (R) before and after OTF (O)
+  /notf        36                   - !  number of on-the-fly subscans: (36-1)*4.8~170''
+  /reference   -600 600             - !  off-source reference subscans
+  /step        0 4.8                - !  step (shift) between OTF subscans
+  /system      projection           - !  system for offset
+  /totf        18.0                 - !  time per on-the-fly subscan: 170''/9.6''~18
+  /treference  10.0                 - !  time on reference position
+  /zigzag                             !  go back and forth
+
+pause "Ready to start the OTF sub-map #1? [c/q] "
+start
+
+calibrate
+start
+
+! scan in dec direction
+! subscans 18sx36 + ref 10sx9 ~12min
+otfmap         -80 -80 -80 80  -
+  /croloop     roooor          -
+  /notf        36              - (36-1)*4.8~170''
+  /reference   -600 600        -
+  /step        4.8 0           -
+  /system      projection      -
+  /totf        18.0            - 170''/9.6''~18
+  /treference  10.0            -
+  /zigzag
+
+pause "Ready to start the OTF sub-map #2? [c/q] "
+start

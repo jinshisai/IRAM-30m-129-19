@@ -1,0 +1,6 @@
+! Set the receivers to observe the C18O (2-1) and N2H+ (1-0) lines.
+
+receiver /clear
+receiver E090 N2H+(1-0) /horizontal LI /vertical LI
+receiver E230 C18O(2-1) /horizontal LI /vertical LI
+

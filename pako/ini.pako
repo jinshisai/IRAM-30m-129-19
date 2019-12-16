@@ -1,0 +1,22 @@
+! Pako init script for project 129-19
+
+set dosubmit no                   ! for debugging
+!set dosubmit yes
+
+set level 3 3                     ! suppress informational messages
+device image w                    ! for plots
+
+sic priority 1 pako               ! PAKO commands get precedence
+                                  ! over similar GREG commands
+
+set project   129-19              ! Project ID (project number)
+set pi        "Jinshi Sai"        ! principal investigator
+set observer  ""
+set operator  ""
+
+catalog line lines.lin
+catalog source sources.sou
+
+show                              ! show the values set with set
+
+

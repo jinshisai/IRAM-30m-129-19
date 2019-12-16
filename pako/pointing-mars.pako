@@ -1,0 +1,17 @@
+! Make a pointing on Mars
+
+source mars                  ! for a first pointing
+offset /clear                ! clear previously set offsets
+
+backend /clear               ! clear previous backend setup
+backend bbc /default         ! connect 1 part to each EMIR subband selected
+
+set angleunit arcsec         ! make sure angle unit is arc sec
+swbeam                       ! to select beam switching
+
+! Pointing with subscan length 120, 4 OTF subscans, 30 seconds per
+! OTF subscan
+
+pointing 120 /notf 4 /totf 30.0
+pause "Ready for pointing? [c/q] "
+start 
