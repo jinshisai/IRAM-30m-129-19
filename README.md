@@ -21,6 +21,8 @@ We use the OTF PSW observing mode to cover a region of ~ 2' x 2'. The requested 
 
 Three targets will be observed one by one. Once a source is completed, we will go to the next target.
 
+The referene of the sky will be taken at ~4h40m10s 26d30m0s, which is an off point from the Taurus cloud.
+
 
 Typical PAKO session
 --------------------

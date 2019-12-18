@@ -5,7 +5,7 @@
 ! TODO: Check the OTF routine in pako
 
 clear
-limits 600 -600 -600 600
+limits 90 -90 -90 90
 box
 
 ! Select the source
@@ -33,7 +33,7 @@ swtotal /tphase 0.5 ! time per phase (data sample)
 ! calibration, and then a second sub-map along the Dec direction. Total
 ! time should be around 30 min.
 
-calibrate /sky -600 600
+calibrate /sky 470 2900 ! 4h40m10s 26d30m0s
 start
 
 ! scan in ra direction
@@ -41,7 +41,7 @@ start
 otfmap         -80 -75 80 -75       - !  offsets at start and end of first OTF leg
   /croloop     roooor               - !  off-source reference subscan (R) before and after OTF (O)
   /notf        34                   - !  number of on-the-fly subscans: (34-1)*4.5~150''
-  /reference   -600 600             - !  off-source reference subscans
+  /reference   470 2900             - !  off-source reference subscans
   /step        0 4.5                - !  step (shift) between OTF subscans
   /system      projection           - !  system for offset
   /totf        18.0                 - !  time per on-the-fly subscan: 160''/9''~18
@@ -59,7 +59,7 @@ start
 otfmap         -80 -75 -80 75  -
   /croloop     roooor          -
   /notf        37              - (37-1)*4.5~160''
-  /reference   -600 600        -
+  /reference   470 2900        -
   /step        4.5 0           -
   /system      projection      -
   /totf        17.0            - 150''/9''~17
