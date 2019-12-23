@@ -46,7 +46,7 @@ set focus -2
 ! to send the receiver setup. This also moves the telescope to the
 ! planet.
 
-source mars
+source uranus
 @ receiver-c18o
 @ backend-c18o
 calibrate /default
@@ -62,7 +62,7 @@ pause "Please check that the system temperatures are OK."
 ! Do a pointing and a focusing on Mars
 
 set focus -2       ! a good starting point
-@ pointing-mars
+@ pointing-uranus
 pause "Please enter the pointing corrections."
 set point  Az El
 
@@ -78,7 +78,7 @@ sou mars
 set point Az El
 
 ! flux calibration with a strong source neaby the targets
-sou tmc1
+sou tmc1(HC5N)
 @lincal-onoff.pako
 
 

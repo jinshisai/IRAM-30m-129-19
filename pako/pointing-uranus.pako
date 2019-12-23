@@ -1,6 +1,6 @@
-! Make a pointing on Mars
+! Make a pointing on Uranus
 
-source mars                  ! for a first pointing
+source uranus                ! for a first pointing
 offset /clear                ! clear previously set offsets
 
 backend /clear               ! clear previous backend setup
@@ -14,4 +14,4 @@ swbeam                       ! to select beam switching
 
 pointing 120 /notf 4 /totf 30.0
 pause "Ready for pointing? [c/q] "
-start 
+start

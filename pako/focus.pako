@@ -1,0 +1,10 @@
+! focus.pako -- Focus the telescope
+
+swbeam        !  to select beam switching
+
+! Focus with a 2.0 mm lenght, 6 subscans of 12 seconds each.
+
+focus 2.0 /nsubscans 6 /tsubscan 12
+pause "Ready to focus? [c/q]"
+start
+

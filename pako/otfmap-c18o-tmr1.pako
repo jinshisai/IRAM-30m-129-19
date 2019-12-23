@@ -38,7 +38,7 @@ start
 
 ! scan in ra direction
 ! subscans 18sx36 + ref 10sx9 ~12min
-otfmap         -80 -80 80 -80       - !  offsets at start and end of first OTF leg
+otfmap         -85 -85 85 -85       - !  offsets at start and end of first OTF leg
   /croloop     roooor               - !  off-source reference subscan (R) before and after OTF (O)
   /notf        36                   - !  number of on-the-fly subscans: (36-1)*4.8~170''
   /reference   750 2200             - !  off-source reference subscans
@@ -56,7 +56,7 @@ start
 
 ! scan in dec direction
 ! subscans 18sx36 + ref 10sx9 ~12min
-otfmap         -80 -80 -80 80  -
+otfmap         -85 -85 -85 85  -
   /croloop     roooor          -
   /notf        36              - (36-1)*4.8~170''
   /reference   750 2200        -
