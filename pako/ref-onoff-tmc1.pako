@@ -1,0 +1,47 @@
+!!! Check off point
+!!! offset of the off point from TMC1: -840 2610 ! 4h40m10s 26d30m0s
+!!! off point for the off point:       -570 3205 ! 4h40m30s 26d40m0s
+
+! setup receivers and spectrometers
+@ backend-c18o.pako                  !  demo setup of receivers  and spectrometers
+
+
+
+source TMC1
+
+SET ANGLE arcsec                            !
+SWTOTAL                                   - !  select total power
+  /TPHASE        0.5                        !  time per phase (data sample)
+
+
+CALIBRATE                                 - !
+  /AMBIENT                                - !  ambient load
+  /COLD                                   - !  cold    load
+  /SKY          -570 3205                 - !  sky at offsets
+  /SYSTEM       projection                - !  system for SKY offsets
+  /TCALIBRATE   5.0                         !  time per calibration subscan
+
+
+PAUSE "CALIBRATE OK to start? [c/q]"        !  a chance to check
+
+
+START                                       !  start
+
+
+ONOFF           -840 2610                 - !  offsets of on position
+  /NSUBSCANS    8                         - !  number of subscans
+  /REFERENCE    -570 3205                 - !  offsets of off-source reference
+  /SYSTEM       projection                - !  system for offsets
+  /SYMMETRIC                              - !  "symmetric" subscan sequence
+  /TSUBSCAN     30                          !  time per subscan
+
+
+PAUSE "ONOFF SWTOTAL OK to start? [c/q]"    !  a chance to check
+
+
+START                                       !  start
+!
+!! Comments:
+!! we assume here that the source already has been selected,
+!! see: demo-source
+
